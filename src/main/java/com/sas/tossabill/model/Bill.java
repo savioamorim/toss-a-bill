@@ -1,18 +1,16 @@
 package com.sas.tossabill.model;
 
 import com.sas.tossabill.enumeration.CategoryEnum;
+import com.sas.tossabill.enumeration.MonthEnum;
 import com.sun.istack.NotNull;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
@@ -33,15 +31,14 @@ public class Bill {
     @Enumerated(EnumType.STRING)
     private CategoryEnum category;
 
-    private String place;
-
     @NotNull
     private BigDecimal price;
 
-    private String details;
+    private String detail;
 
-    @CreatedDate
-    private LocalDateTime createdAt;
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private MonthEnum month;
 
     @Column(columnDefinition = "boolean default false")
     private Boolean archived = false;
