@@ -40,6 +40,9 @@ public class Bill {
     @Enumerated(EnumType.STRING)
     private MonthEnum month;
 
+    @NotNull
+    private String year;
+
     @Column(columnDefinition = "boolean default false")
     private Boolean archived = false;
 
