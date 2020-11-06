@@ -8,5 +8,15 @@ import java.util.UUID;
 public interface BillService {
 
     List<Bill> findAll();
+
     Bill findById(UUID id);
+
+    Bill save(Bill bill);
+
+    Bill update(Bill bill);
+
+    void deleteById(UUID id);
+
+    Bill updateArchive(UUID id, Boolean value);
+
 }
