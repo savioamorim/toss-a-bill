@@ -47,4 +47,10 @@ public class BillServiceImpl implements BillService {
         bill = save(bill);
         return bill;
     }
+
+    @Override
+    public List<Bill> findAllByCategory(String category) {
+        return billRepository.findAllByCategory(category);
+    }
+
 }

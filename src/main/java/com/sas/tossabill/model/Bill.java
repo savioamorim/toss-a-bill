@@ -29,8 +29,7 @@ public class Bill implements Serializable {
     @NotNull
     private String title;
 
-    @Enumerated(EnumType.STRING)
-    private CategoryEnum category;
+    private String category;
 
     @NotNull
     private BigDecimal price;

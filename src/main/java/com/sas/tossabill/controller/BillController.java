@@ -65,4 +65,11 @@ public class BillController {
         return billService.updateArchive(id, false);
     }
 
+    @GetMapping("/category/{category}")
+    @ResponseStatus(HttpStatus.OK)
+    @ApiOperation(value = "Find bills by category")
+    public List<Bill> findAllByCategory(@PathVariable String category){
+        return billService.findAllByCategory(category);
+    }
+
 }
