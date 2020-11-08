@@ -3,6 +3,7 @@ package com.sas.tossabill.service;
 import com.sas.tossabill.model.Bill;
 import org.springframework.data.repository.query.Param;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
@@ -22,4 +23,5 @@ public interface BillService {
 
     List<Bill> findAllByCategory(@Param("category") String category);
 
+    BigDecimal sumBillsByYear(@Param("year") String year);
 }

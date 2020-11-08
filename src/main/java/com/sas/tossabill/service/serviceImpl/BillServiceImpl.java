@@ -6,6 +6,7 @@ import com.sas.tossabill.service.BillService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
@@ -51,6 +52,11 @@ public class BillServiceImpl implements BillService {
     @Override
     public List<Bill> findAllByCategory(String category) {
         return billRepository.findAllByCategory(category);
+    }
+
+    @Override
+    public BigDecimal sumBillsByYear(String year) {
+        return billRepository.sumBillsByYear(year);
     }
 
 }

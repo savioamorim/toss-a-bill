@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
@@ -70,6 +71,13 @@ public class BillController {
     @ApiOperation(value = "Find bills by category")
     public List<Bill> findAllByCategory(@PathVariable String category){
         return billService.findAllByCategory(category);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/totalValueByYear/{year}")
+    @ApiOperation(value = "Return sum of the bills by year")
+    public BigDecimal sumBillsByYear(@PathVariable String year){
+        return billService.sumBillsByYear(year);
     }
 
 }
