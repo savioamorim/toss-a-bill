@@ -23,5 +23,13 @@ public interface BillService {
 
     List<Bill> findAllByCategory(@Param("category") String category);
 
+    List<Bill> findBillsByYearAndCategory(@Param("year") String year, @Param("category") String category);
+
+    List<Bill> findBillsByMonthAndYear(@Param("month") String month, @Param("year") String year);
+
+    List<Bill> findBillsByMonthAndYearAndCategory(@Param("month") String month, @Param("year") String year, @Param("category") String category);
+
+    List<Bill> findAllByArchived(@Param("archived") Boolean archived);
+
     BigDecimal sumBillsByYear(@Param("year") String year);
 }

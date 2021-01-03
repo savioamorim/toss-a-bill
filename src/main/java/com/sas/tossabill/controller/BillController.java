@@ -1,7 +1,6 @@
 package com.sas.tossabill.controller;
 
 import com.sas.tossabill.model.Bill;
-import com.sas.tossabill.repository.BillRepository;
 import com.sas.tossabill.service.BillService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -71,6 +70,34 @@ public class BillController {
     @ApiOperation(value = "Find bills by category")
     public List<Bill> findAllByCategory(@PathVariable String category){
         return billService.findAllByCategory(category);
+    }
+
+    @GetMapping("/year-category/{year}-{category}")
+    @ResponseStatus(HttpStatus.OK)
+    @ApiOperation(value = "Find bills by year and category")
+    public List<Bill> findBillsByYearAndCategory(@PathVariable String year, @PathVariable String category){
+        return billService.findBillsByYearAndCategory(year, category);
+    }
+
+    @GetMapping("/month-year/{month}-{year}")
+    @ResponseStatus(HttpStatus.OK)
+    @ApiOperation(value = "Find bills by month and year")
+    public List<Bill> findBillsByMonthAndYear(@PathVariable String month, @PathVariable String year){
+        return billService.findBillsByMonthAndYear(month, year);
+    }
+
+    @GetMapping("/month-year-category/{month}-{year}-{category}")
+    @ResponseStatus(HttpStatus.OK)
+    @ApiOperation(value = "Find bills by month, year and category")
+    public List<Bill> findBillsByMonthAndYearAndCategory(@PathVariable String month, @PathVariable String year, @PathVariable String category){
+        return billService.findBillsByMonthAndYearAndCategory(month, year, category);
+    }
+
+    @GetMapping("/archived/{archived}")
+    @ResponseStatus(HttpStatus.OK)
+    @ApiOperation(value = "Find bills by archived")
+    public List<Bill> findAllByArchived(@PathVariable Boolean archived){
+        return billService.findAllByArchived(archived);
     }
 
     @ResponseStatus(HttpStatus.OK)

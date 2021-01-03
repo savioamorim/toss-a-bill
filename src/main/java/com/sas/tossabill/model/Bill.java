@@ -37,8 +37,7 @@ public class Bill implements Serializable {
     private String detail;
 
     @NotNull
-    @Enumerated(EnumType.STRING)
-    private MonthEnum month;
+    private String month;
 
     @NotNull
     private String year;

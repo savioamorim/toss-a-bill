@@ -55,6 +55,26 @@ public class BillServiceImpl implements BillService {
     }
 
     @Override
+    public List<Bill> findBillsByYearAndCategory(String year, String category) {
+        return billRepository.findBillsByYearAndCategory(year, category);
+    }
+
+    @Override
+    public List<Bill> findBillsByMonthAndYear(String month, String year) {
+        return billRepository.findBillsByMonthAndYear(month, year);
+    }
+
+    @Override
+    public List<Bill> findBillsByMonthAndYearAndCategory(String month, String year, String category) {
+        return billRepository.findBillsByMonthAndYearAndCategory(month, year, category);
+    }
+
+    @Override
+    public List<Bill> findAllByArchived(Boolean archived) {
+        return billRepository.findAllByArchived(archived);
+    }
+
+    @Override
     public BigDecimal sumBillsByYear(String year) {
         return billRepository.sumBillsByYear(year);
     }
